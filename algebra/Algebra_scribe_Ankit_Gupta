@@ -1,0 +1,325 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+\newcommand{\handout}[5]{
+   \renewcommand{\thepage}{#1-\arabic{page}}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf Elements of Algebraic Structures} \hfill #2 }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill #5  \hfill} }
+       \vspace{2mm}
+       \hbox to 5.78in { {\it #3 \hfill #4} }
+      }
+   }
+   \end{center}
+   \vspace*{4mm}
+}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\ho}[5]{\handout{#1}{#2}{Instructor:
+#3}{Scribe: #4}{Lecture #11: #5}}
+\begin{document}
+\ho{1}{$06^{th}$ September, 2019}{Sujata Ghosh} {Ankit Gupta} {Spanning set, Linear Independence and Basis}
+First, revisit the definition of field which we have discussed in the last class. \\
+\\
+A field is a set \textit{F}, along with $2$ operations i.e. $(\textit{F},+,.)$ with the following properties :
+\begin{enumerate}
+    \item (\textit{F},+) forms an abelian group with $0$ as an identity element and $-a$ as an inverse element of $a$ where $0,a,-a \in \textit{F}$
+    \item (\textit{F}-$\{0\}$,.) forms an abelian group with $1$ as an identity element and $a^{-1}$ as inverse element of $a$ with $a^{-1}=\frac{1}{a},$ where $a,a^{-1},1 \in \textit{F}$\\
+    \\
+Binary operations which are defined on this field $\textit{F}$ can be anything. The important thing is that we should have $2$ abelian groups(additive and multiplicative) to get a field. Here, in multiplicative abelian group, every non-zero element must have a multiplicative inverse and additive \& multiplication laws must be compatible over this field \textit{F} which means distributive law i.e. $a.(b+c) =(a.b)+(a.c)$ should also be followed here.
+\end{enumerate}
+
+Now, when we say vector space $\textit{V}$ is defined over a field $\textit{F}$, it means :
+\begin{itemize}
+    \item ($\textit{V},+$) forms an abelian group, where $+$ is defined as :
+    \begin{center}
+        $+: \textit{V}\times \textit{V} \rightarrow \textit{V} $
+    \end{center}
+It means, it takes any $2$ vectors say $v$ and $w$ from vector space $\textit{V}$ and generates a new vector $v+w$
+\item Vector space $\textit{V}$ should follow scalar multiplication$(.)$ over a field $\textit{F},$ where $.$ is defined as :
+    \begin{center}
+        $.: \textit{F}\times \textit{V} \rightarrow \textit{V} $
+    \end{center}
+It means, it takes a vector, say, $v$ from vector space \textit{V} and a scalar 'c' from field \textit{F} and gives a new vector $c.v$ which is also an element of vector space \textit{V} \\
+i.e.\begin{center}
+        $v \mapsto c.v$
+    \end{center}
+Now, comes to the concept of Spanning set, Linear Independence and Basis. Suppose, we have a vector space \textit{V} over a fixed field \textit{F}.
+
+\section{Span of a set} If we have a set of vectors $S=\{v_1,v_2,.....,v_n\}$ in a vector space \textit{V} and if we can express a vector $w \in \textit{V}$ as :
+\begin{center}
+    $w=a_1.v_1+a_2.v_2+........+a_n.v_n$\\
+    $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\forall i,\;\; a_i \in \textit{F}$
+\end{center}
+Then all such linear combinations (or) all such $w'$s form the span of $S.$ So, basically, the span of a set $S$ is the set of all linear combinations of the vectors in $S$. It is denoted by $span(S).$
+\begin{center}
+        $span(S) = span\{v_1, v_2,...v_n\} = \{a_1v_1 + a_2v_2+...+a_nv_n \;|\; a_1, a_2,...,a_n \in \textit{F}\}$.
+    \end{center}
+Span$(S)$ is basically a subspace of $\textit{V}$.\\
+\\
+\textbf{Spanning Set of a Vector Space}: if set $S = \{v_1, v_2,...v_n\}$ be a subset of a vector space $V$. Then set $S$ is called a spanning
+set of $V$ if \textbf{every} vector in $V$ can be written as a linear combination of vectors in $S$. In such cases, it is said that $S$ spans $V$ and consequently, we say, \textit{V} is finite dimensional.\\
+\section{Linear Independence}
+A set of vectors $\{v_1,v_2,....,v_n\}$ is called linearly independent if\\
+\begin{center}
+$a_1.v_1+a_2.v_2+........+a_n.v_n=0_V$
+\end{center}
+where, $\forall i,\;\; a_i \in \textit{F}$ and  
+$a_1=a_2=........=a_n= 0$\\
+\\
+\textbf{Example}: Suppose, we have a vector space $V=\mathbb{R}^3$ and set of vectors $\{v_1,v_2,v_3\}$ where $v_1=(1,0,0),$ $v_2=(1,1,0),$ $v_3=(1,2,3)$\\
+Now, here, $span\{v_1,v_2\}$ makes the subspace  which contains vectors of the form $(a,b,0)$, where, $a,b \in \mathbb{R}$\\
+Also, set $\{v_1,v_2,v_3\}$ is linearly independent if $a_1=a_2=a_3=0$ in $a_1v_1 + a_2v_2 + a_3v_3 = 0$.\\
+Let's test it whether they are linearly independent or not.
+\begin{center}
+$a_1v_1 + a_2v_2 + a_3v_3 = 0_V$\\
+$a_1(1,0,0) + a_2(1,1,0) + a_3(1,2,3)=(0,0,0)$\\
+$(a_1,0,0) + (a_2,a_2,0) + (a_3,2a_3,3a_3)=(0,0,0)$\\
+$(a_1+a_2+a_3, a_2+2a_3, 3a_3)=(0,0,0)$\\
+$\Rightarrow$ $a_1+a_2+a_3=0$, $a_2+2a_3 = 0$, $3a_3=0$\\
+$\Rightarrow$ $a_1 = 0 , a_2 = 0, a_3 = 0 $\\
+\end{center}
+Hence, $\{v_1,v_2,v_3\}$ is a linearly independent set. Actually $\{v_1,v_2,v_3\}$ is a basis of $\mathbb{R}^3$. We will see basis in next section.
+\section{Basis}
+For vector space \textit{V} over field \textit{F}, an ordered set $(v_1,v_2,....,v_n)$ is said to be a basis of \textit{V} if it spans \textit{V} and is linearly independent. \\
+It means every vector $w \in \textit{V}$ is uniquely expressed as a linear combination i.e.
+\begin{center}
+$w=a_1v_1+a_2v_2+.......+a_nv_n$
+\end{center}
+\begin{proof}
+Let, vector $w$ can be expressed in $2$ different ways as:
+\begin{center}
+    $w=a_1v_1+a_2v_2+..........+a_nv_n$  $\rightarrow(1)$\\
+    $w=b_1v_1+b_2v_2+..........+b_nv_n$  $\rightarrow(2)$
+\end{center}
+Now, subtract $(2)$ from $(1),$
+\begin{center}
+    $0_V=(a_1-b_1)v_1 + (a_2-b_2)v_2 +......+(a_n-b_n)v_n $
+\end{center}
+Since, vectors $v_1,v_2,...,v_n$ are linearly independent.\\
+So, $a_1-b_1=0$, $a_2-b_2=0$,.....,$a_n-b_n=0$\\
+$\Rightarrow \;\;a_1=b_1,a_2=b_2,....,a_n=b_n$\\
+Hence, every vector $w \in \textit{V}$ can be uniquely expressed. 
+\end{proof}
+\\
+\item \textbf{A basis of \textit{V} gives an  isomorphism from \textit{V} to \textit{$\mathbf{F^n}$}} \textbf{i.e.} $\mathbf{f: V \rightarrow F^n}$\\\
+\textbf{where} \textit{$\mathbf{f(w)=(a_1,a_2,.....,a_n), w \in V}$}
+
+\begin{proof}: Here, $f$ is homomorphism because if we add $2$ vectors $w$ and $w'$ where $w=a_1v_1+a_2v_2+...+a_nv_n$ and $w' = b_1v_1+b_2v_2+.....+b_nv_n$ then\\
+$f(w+w')=(a_1+b_1,a_2+b_2,.....,a_n+b_n)=f(w)+f(w')$\\
+\& $f(cw)=(ca_1,ca_2,.....,ca_n)=cf(w)$\\
+Now, $\textit{f}$ is onto because if we have $n$ tuples of scalers in $\textit{F}^n$ then we can make '$w$' by multiplying those scalers with our vectors.\\
+$\textit{f}$ is one-one also because let,
+\begin{center}
+    $f(w)=f(w')$\\
+    $\Rightarrow\;(a_1,a_2,.....,a_n)=(b_1,b_2,.....,b_n)$\\
+    $\Rightarrow\; a_1=b_1,a_2=b_2,....a_n=b_n$\\
+    $\Rightarrow\; w=w'$
+\end{center}
+So, $\textit{f}$ is one-one.
+\end{proof}\\
+\\
+\textbf{Theorem}: \textbf{If $\textit{V}$ is a finite dimensional vector space over a field $\textit{F}$ then if $S$ is a finite set that spans $\textit{V}$, there is a subset of $S$ which forms a basis for $\textit{V}$}\\
+\\
+\begin{proof}: If $S$ is a linearly independent set then we are done because by definition, S is linearly independent set and spans V , So, it forms a basis.\\
+Suppose, if not, i.e. $S$ is a linearly dependent set.\\
+Now, consider the set $S=\{v_1,v_2,.....,v_n\}$ and relation:\\
+    $a_1v_1+a_2v_2+.....+a_nv_n=0$  $\rightarrow (1)$ \\
+    with some $a_i \neq 0$\\
+Now, without loss of generality,\\
+Suppose, $a_n \neq 0$\\
+Then, from equation $(1)$,\\
+$a_nv_n = -(a_1v_1+a_2v_2+.....+a_{n-1}v_{n-1}) \in \textit{V}$\\
+Now, use the fact that we are in a field and we have a non-zero element in the field, So, we can write its multiplicative inverse. So, $a_n^{-1}$ exists.\\
+Then, $v_n = \frac{-1}{a_n}(a_1v_1+a_2v_2+.....+a_{n-1}v_{n-1})$\\
+It means $v_n \in span(v_1,v_2,.....v_{n-1})$\\
+It means, if we could write something in $n$ things then we could also write it in $(n-1)$ things.\\
+So,$span(v_1,v_2,.....,v_n) = span(v_1,v_2,....,v_{n-1}) = \textit{V}$\\
+Now, if this set $\{v_1,v_2,....,v_{n-1}\}$ is linearly independent then we are done and if not, repeat this process finitely many times because we have started with a  finite set $S$. At the end, we may get an empty set which is a basis for $\{0\}$ vector space.\\
+This completes the proof.
+\end{proof}\\
+\textbf{Theorem}: \textbf{If $L=\{\mathbf{w_1,w_2,....,w_n}\}$ is a linearly independent set in \textit{V} then $L$ can be extended to a set which will form a basis of \textit{V}.}
+\begin{proof}: $1)$ If $L$ spans \textit{V}, we are done because according to definition, set $L$ is linearly independent and spans \textit{V}, so it will definitely form a basis.\\
+$2)$ If not,\\
+Let $S$ is a finite set which spans \textit{V}. Now, assume, there exists a vector $\textit{v} \in S$ such that $\textit{v} \notin span(L)$ because if everything in $S$ is written as a linear combination of things which are in $L$ and everything in \textit{V} can be written as a linear combination of things which are in $S$ then we would have written everything in \textit{V} as a linear combination of things in $L$ but here $L$ did not span \textit{V}. So, there must be some vector in $S$ which is not in the span of $L.$ Then, \\
+\textbf{Claim}: $L\cup \{\textit{v}\}$ is linearly independent set.
+Now, consider the relation,
+\begin{center}
+    $\sum_{i=1}^{m}a_iw_i + bv = 0$
+\end{center}
+Here, '$b$' should be zero otherwise '$\textit{v}$' will be in the span of $L$ because $\textit{v}=\frac{-1}{b}(\sum_{i=1}^{m}a_iw_i)$ but we assume \textit{v} is not in $span(L)$\\
+Hence, $\sum_{i=1}^{m}a_iw_i = 0$, So, all $a_i = 0 $ for $1 \leq i \leq m$.\\
+Let, $L' = L \cup \{\textit{v}\}$\\
+If $L'$ spans $S$, we are done otherwise repeat this procedure finite number of times because $S$ is finite and we will get a basis for \textit{V}.\\
+This completes the proof.
+\end{proof}\\
+\textbf{Theorem}: \textbf{If $\mathbf{S}=\{\mathbf{v_1,v_2,....,v_n}\}$ spans \textit{V} \& $\mathbf{L=\{w_1,w_2,....,w_m}\}$ is a linearly independent set in \textit{V}.\\
+Then, $\mathbf{n \geq m}$\\
+i.e. spanning sets are bigger than or equal to linearly independent sets.}
+\begin{proof}: Since, $S$ spans \textit{V}, we have
+\begin{center}
+    $w_j =\sum_{i=1}^{n}a_{ij}v_i$
+\end{center}
+Now, $L$ is linearly independent set, So,
+\begin{center}
+    $0 = \sum_{j=1}^{m}c_jw_j$
+\end{center}
+Now, replace the value of $w_j$,we get,\\
+\begin{center}
+    $0 =\sum_{j=1}^{m}c_j \left (\sum_{i=1}^{n}a_{ij}v_i \right)$ \\
+    $\;\;= \sum_{i=1}^{n}(\sum_{j=1}^{m}a_{ij}c_j)v_i$   
+\end{center}
+Now, if we have that $\sum_{j=1}^{m}a_{ij}c_{j} = 0$ for all $i$ with some $c_j \neq 0$ then the set $L$ could not be linearly independent because set $L$ will be linearly independent if all $c_j$ are zero and then $\sum_{j=1}^{m}a_{ij}c_{j} = 0$\\
+Now, here in $\sum_{j=1}^{m}a_{ij}c_{j} = 0$ with $1 \leq i \leq n$, we have $n$ equations and $m$ unknowns in system of simultaneous linear equations i.e.
+\begin{center}
+    $a_{11}c_1 + a_{12}c_2+......+a_{1m}c_m = 0$\\
+    $a_{21}c_1 + a_{22}c_2+......+a_{2m}c_m = 0$\\
+    .....\\
+    .....\\
+    $a_{n1}c_1 + a_{n2}c_2+......+a_{nm}c_m = 0$
+\end{center}
+Now, as we know, If we have more unknowns than equations $(m>n)$ then we can always find a non-trivial solution. It means, it is possible that $c_j$ $(j=1,2,...,m)$ will be non-zero. So, for $m>n$, it contradicts our hypothesis that set $L=\{w_1,w_2,...,w_m\}$ is linearly independent because in that case all $c_j$ must be zero. So, in case of $m>n,$ we get the contradiction.\\
+Hence, $m \leq n$\\
+This completes the proof.
+\end{proof}\\
+\textbf{Corollary}:\\
+$\mathbf{1)}$ \textbf{All the bases of \textit{V} have the same no. of elements \& number of elements in the basis is called the \textbf{dimension of \textit{V}}}. The elements of a basis are called \textbf{basis vectors}. For every vector space, there exists a basis. If the dimension of \textit{V} is finite then \textit{V} is finite-dimensional otherwise infinite-dimensional.\\
+\begin{proof} : Let, we have $2$ bases \textit{B} and \textit{B'}. Since, \textit{B} spans and \textit{B'} is linearly independent. So, from previous theorem,\\
+Number of elements in \textit{B} $\geq$ Number of elements in \textit{B'}\\
+Similarly,\\
+Since, \textit{B'} spans and \textit{B} is linearly independent. So,\\
+Number of elements in \textit{B'} $\geq$ Number of elements in \textit{B}\\
+So, from the above $2$ facts,\\
+Number of elements in \textit{B} = Number of elements in \textit{B'}
+\end{proof}\\
+\\
+$\mathbf{2)}$ \textbf{If \textit{S} is a spanning set then no. of elements in \textit{S} $\mathbf{\geq dim(\textit{V})$}}\\
+As we have seen previously, we can reduce the spanning set to get a basis. So, no. of elements in \textit{S} should be atleast the no. of elements in a basis.\\
+\\
+$\mathbf{3)}$ \textbf{If \textit{L} is a linearly independent set then no. of elements in \textit{L} $\mathbf{\leq dim(\textit{V})}$}\\
+As we have seen previously, we can always increase a linearly independent set to get a basis. So, no. of elements in \textit{L} should be $\leq$ number of elements in basis(dim$(\textit{V})$).\\
+\\ 
+\item \textbf{Suppose, $\textit{W} \subseteq \textit{V}$ and let $\textit{W} =\{\mathbf{w_1,w_2,....,w_m}\}$ is a basis for \textit{W} then $\{\mathbf{w_1,w_2,....,w_m,v_{m+1},.....,v_n}\}$ will form a basis of \textit{V} which means any basis of \textit{W} can be extended to form a basis of \textit{V}.}
+\begin{proof}: Since, original set $\{w_1,w_2,....,w_n\}$ is a linearly independent set in \textit{V} \& spans \textit{W}. As we have seen previously, we can always take a linearly independent set and extend it to a basis.\\
+This completes the proof.
+\end{proof}
+\\
+\item Consider a map,
+\begin{center}
+    $\textit{f}:\textit{V} \rightarrow \textit{V/W}$
+\end{center}
+such that
+\begin{center}
+     $v \mapsto v+W$
+\end{center}
+\textit{f} is called the \textbf{canonical map}.\\
+Here, \textbf{$\{\mathbf{f(v_{m+1}),f(v_{m+2}),....,f(v_n)}\}$  forms a basis of quotient space \textit{V/W}.}
+\begin{proof}: Here, we need to prove $2$ things :\\
+$1)$ set $\{f(v_{m+1}),f(v_{m+2}),....,f(v_n)\}$ spans \textit{V/W} \\
+$2)$ set $\{f(v_{m+1}),f(v_{m+2}),....,f(v_n)\}$ is linearly independent \\
+Here, \textit{W} is a subspace of \textit{V}.\\
+Let, set $R=\{w_1,w_2,.....,w_m\}$ is a basis for \textit{W} and \\
+set $S=\{w_1,w_2,.....,w_m,v_{m+1},v_{m+2},.....,v_{n}\}$ is a basis for \textit{V} because if we have $\{w_1,w_2,.....,w_m\}$ is a basis for \textit{W} then we can extend it to get a basis for \textit{V} \\
+Let, $x \in \textit{V/W}$ and $x= v + \textit{W}$, where, $v \in \textit{V}$\\
+We can write $x= v + \textit{W}$ as : \\
+$x=a_1w_1 + a_2w_2 +...+a_mw_m +a_{m+1}v_{m+1}+....+a_nv_n + W$ [Since,$S$ is a basis]\\
+Since, $a_1w_1 + a_2w_2 +...+a_mw_m=0$ [Since, $R$ is a basis]\\
+So, $x=a_{m+1}v_{m+1}+a_{m+2}v_{m+2}+....+a_nv_n + W$\\
+$\Rightarrow$ $x=a_{m+1}v_{m+1}+W+a_{m+2}v_{m+2}+W+....+a_nv_n + W$\\
+$\Rightarrow$ $x=a_{m+1}(v_{m+1}+W)+a_{m+2}(v_{m+2}+W)+....+a_n(v_n + W)$\\
+$\Rightarrow$ $x=a_{m+1}f(v_{m+1})+a_{m+2}f(v_{m+2})+....+a_nf(v_n + W)$\\
+So, $\{f(v_{m+1}),f(v_{m+2}),....,f(v_n)\}$ spans \textit{V/W}\\
+Now, we will prove that set $\{f(v_{m+1}),f(v_{m+2}),....,f(v_n)\}$ is linearly independent.\\
+Consider, $\{c_1f(v_{m+1})+c_2f(v_{m+2})+....+c_nf(v_n) = 0'\}$ where $0' \in \textit{W}$ and $c_1,c_2,...,c_n \in \textit{F}$\\
+$\Rightarrow c_1(v_{m+1} + W) + c_2(v_{m+1} + W)+.....+c_n(v_n + W) = 0'$\\
+$\Rightarrow c_1v_{m+1} + c_2v_{m+1}+.....+c_nv_n + W = 0'$\\
+$\Rightarrow c_1v_{m+1} + c_2v_{m+1}+.....+c_nv_n + W = 0 + \textit{W}$\\
+$\Rightarrow c_1v_{m+1} + c_2v_{m+1}+.....+c_nv_n \in \textit{W}$\\
+Let, $w= c_1v_{m+1} + c_2v_{m+1}+.....+c_nv_n$ 
+Since, set $R$ forms a basis for \textit{W} and $w$ is in \textit{W}. So, $w$ can also be written as :\\
+$w= a_1w_1 + a_2w_2+.....+a_mw_m$\\
+So, $c_1v_{m+1} + c_2v_{m+1}+.....+c_nv_n = a_1w_1 + a_2w_2+.....+a_mw_m$\\
+$\Rightarrow c_1v_{m+1} + c_2v_{m+1}+.....+c_nv_n - a_1w_1 - a_2w_2-.....-a_mw_m = 0$
+Since, set $S$ is a basis. \\
+So, $c_1=0,c_2=0,.....c_n=0$ which implies set $\{f(v_{m+1}),f(v_{m+2}),....,f(v_n)\}$ is linearly independent.\\
+Hence, $\{f(v_{m+1}),f(v_{m+2}),....,f(v_n)\}$  forms a basis of quotient space \textit{V/W}.
+\end{proof}\\
+\item \textbf{If subspace of \textit{V} is $\mathbf{W' = span\{v_{m+1},.....,v_n}\}$ then $W'$ is isomorphic to \textit{V/W}.} Here, quotient space \textit{V/W} sits within vector space \textit{V}. \\
+\item \textbf{If \textit{W} is a subspace of \textit{V} spanned by $\{\mathbf{w_1,w_2,...w_m}\}$ and \textit{W'} is another subspace which is spanned by $\{\mathbf{v_{m+1},v_{m+2},.....,v_n}\}$\\
+Then \textit{W} $\mathbf{\cap}$ \textit{W'} = {$\mathbf{0_V}$}}
+\begin{proof}:\\
+Suppose, \textit{w} $\in$ \textit{W} and \textit{w'} $\in$ \textit{W'} then we can write \textit{w} and \textit{w'} as :\\
+$\textit{w} = a_1w_1 + a_2w_2 + .....+ a_nw_m$ $\rightarrow (1)$\\
+$\textit{w'} = a_{m+1}v_{m+1} + a_{m+2}v_{m+2} + .....+ a_nv_n$ $\rightarrow (2)$ \\
+Now, suppose \textit{w} = \textit{w'} means there is a common vector in sub-spaces \textit{W} and \textit{W'}. Now, We will show that this common vector must be only zero vector $0_V$.\\
+Now, subtract equation $(2)$ from equation $(1)$,\\
+$0 = \textit{w}-\textit{w'}$\\
+$0 = a_1w_1 + a_2w_2 + .....+ a_nw_m - a_{m+1}v_{m+1} - a_{m+2}v_{m+2} + .....- a_nv_n$ \\
+Since, set $\{w_1,w_2,...w_m,v_{m+1},v_{m+2},.....,v_n\}$ is linearly independent set and forms a basis for \textit{V}.\\
+So, each $a_i=0$. From equation $(1)$ and $(2)$,\\
+$\Rightarrow \textit{w}= \textit{w'}= 0$ \\
+This completes the proof.
+\end{proof}\\
+\item \textbf{We have an isomorphism between $\textit{W} \times \textit{W'}$ and \textit{V} i.e.}
+\begin{center}
+    \textit{W} $\times$ \textit{W'} = {(w,w'); w $\in$ \textit{W} $\&$ w' $\in$ \textit{W'}}
+\end{center}
+more natural map for this will be :
+\begin{center}
+    (w,w') $\mapsto$ w+w'
+\end{center}
+\begin{proof}
+First, we will show that there is a homomorphism/ linear map/linear transformation which means :\\
+\begin{center}
+    f(s+t) = f(s) + f(t) \& \\
+    f(cs) = cf(s)\\
+\end{center}
+where $s,t$ are vectors in vector space and 'c' is a scalar from field. 
+Here, map is like :
+\begin{center}
+    $(w_1,w_{1}') + (w_2,w_{2}') = (w_1+w_2, w_{1}' + w_{2}')$\\
+    $c(w,w') = (cw,cw')$
+\end{center}
+where, let $w_1,w_2 \in \textit{W} $ and $w_{1}',w_{2}' \in \textit{W'}$ \\
+It is clearly a linear map.
+Now, to show bijections in Vector Spaces, always relate injections with linear independence and surjections with span.\\
+Here, it shows surjectivity because $\{v_1,....,v_n\}$ spans \textit{V}. So, everything in \textit{V} can be written as a linear combination of $\{v_1,....,v_n\}$. So, if we take $1^{st}$ part of linear combination from \textit{w} and $2^{nd}$ part from \textit{w'} and add up these, we will get whatever vector we want in vector space \textit{V}. So, surjectivity follows from spanning.\\    
+Now, Injectivity comes from linear independence.\\
+Suppose, $f(w_1,w_{1}')=f(w_2,w_{2}')$\\
+$\Rightarrow w_1 + w_{1}' = w_2 + w_{2}'$\\
+$\Rightarrow w_1 - w_2 = w_{1}' - w_{2}'$\\
+Since, $w_1 - w_2 \in \textit{W}$ and $w_{1}' - w_{2}' \in \textit{W}'$\\ 
+Let, common vector is $v$. So, $w_1 - w_2=v$ and $w_{1}' - w_{2}'=v$   \\
+So, $v \in \textit{W} \cap \textit{W'}$ which implies $v=0_V$\\
+Hence, $w_1-w_2=0 \Rightarrow w_1 = w_2$ and $w_{1}'-w_{2}'=0 \Rightarrow w_{1}' = w_{2}'$ \\
+This completes the proof.
+\end{proof}\\
+\item \textbf{Suppose, \textit{W} is a subspace of \textit{V} and there is another subspace \textit{W'} of \textit{V} such that the composition map} 
+\begin{center}
+    $\textit{W'} \rightarrow \textit{V} \rightarrow \textit{V/W}$ \\
+\end{center}
+i.e.
+\begin{center}
+    $\textit{w'} \mapsto \textit{w'} \mapsto \textit{w'}+ \textit{W}$ 
+\end{center}
+\textbf{gives a linear isomorphism from \textit{W'} to \textit{V/W}}\\
+\item \textbf{\textit{V} is isomorphic to $\mathbf{\textit{W} \times \textit{V/W}}$}\\
+i.e.
+\begin{center}
+    $\textit{V} \cong \textit{W} \times \textit{V/W}$
+\end{center}
+Now, $dim(\textit{V}) = dim(\textit{W}) + dim(\textit{V/W})$ or we can also write it as : $dim(\textit{V}) = dim(\textit{Ker(f)}) + dim(\textit{Im(f)}).$ 
+\end{document}
